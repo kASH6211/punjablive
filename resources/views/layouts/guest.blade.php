@@ -46,7 +46,7 @@
                         {{ __('Polling Personnel Management') }}
                     </x-nav-link> 
 
-                    <x-nav-link target="_blank" href="https://ppdms.punjab.gov.in" :active="request()->routeIs('dashboard')" class="!text-white w-96 hover:bg-blue-600">
+                    <x-nav-link target="_blank" href="https://ppdms.punjab.gov.in" :active="request()->routeIs('dashboard')" rel="noopener noreferrer" class="!text-white w-96 hover:bg-blue-600">
                         {{ __('Election Activity Monitoring (Poll Day & Counting Day)') }}
                     </x-nav-link> 
                      

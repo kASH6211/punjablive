@@ -17,7 +17,7 @@
 
 
     <!-- Styles -->
-    <link href="/assets/css/flowbite.min.css" rel="stylesheet" />
+    {{-- <link href="/assets/css/flowbite.min.css" rel="stylesheet" /> --}}
 
     @livewireStyles
 
