@@ -23,7 +23,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\AddXContentTypeOptionsHeader::class,
         \App\Http\Middleware\AddReferrerPolicyHeader::class,
-     //   \App\Http\Middleware\AddContentSecurityPolicyHeader::class,
+        \App\Http\Middleware\AddContentSecurityPolicyHeader::class,
      // \App\Http\Middleware\StrictTransportHeaderPolicy::class,
     ];
 
