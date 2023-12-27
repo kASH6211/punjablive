@@ -10,17 +10,19 @@
     <div class="mt-4 w-full">
         <x-label for="name" value="{{ __('Upload HRMS Master Data File (.xls or .xlsx)') }}" />
     </div>
+    <form wire:submit.prevent="import">
     <div class="relative my-4">
         <!-- This is the visible part of the file input -->
         
-        <x-input type="file" class="w-full h-full" wire:model="file" accept=".xls, .xlsx"   required/>
+        <x-input type="file" class="w-full h-full" wire:model="file" wire:ignore accept=".xls, .xlsx"  required/>
     
         <!-- This is the hidden button -->
         
     </div>
     <div class="w-full flex justify-end mt-2">
-        <div><x-dark-button wire:click="import()" >Import Excel</x-danger-button></div>
+        <div><x-dark-button  type="submit" >Import Excel</x-danger-button></div>
     </div>
+</form>
     
     @if(session('success'))   
 

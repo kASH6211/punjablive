@@ -275,7 +275,6 @@
                     {{-- @if(Auth::user()->role_id!=4)  --}}
                     
                     {{-- @endif --}}
-
                     @if(Session::get('menutype.users')==1)    
                     <x-dropdown align="right" width="64">
                         <x-slot name="trigger">
