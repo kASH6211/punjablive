@@ -346,7 +346,6 @@ protected $rules=[
     {
         // Path to the CSV file
         $csvFilePath = $path;
-    
         // Your table name
         $tableName = $table;
         if(Schema::hasTable($tableName))
@@ -357,6 +356,7 @@ protected $rules=[
         $sql = <<<SQL
         COPY $tableName FROM '$csvFilePath' DELIMITER ',' CSV HEADER ENCODING 'win1252';
         SQL;
+       // dd($sql);
     
        
             DB::unprepared($sql);
@@ -368,8 +368,10 @@ protected $rules=[
     {
         set_time_limit(10000);
         ini_set('memory_limit', '1024M');
-        $this->validate();
-        
+       // $this->validate();
+        $this->validate([
+            'file' => 'required|mimes:csv',
+        ]);
         //$this->polling_data_ram=PollingData::withTrashed()->get();
         // Store the uploaded Excel file
         //$path = $this->file->store('temp');

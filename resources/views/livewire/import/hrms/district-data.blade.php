@@ -9,12 +9,12 @@
 
    <div class=" p-2"  >
     <div class="mt-4 w-full">
-        <x-label for="name" value="{{ __('Upload HRMS Data File (.xls or .xlsx)') }}" />
+        <x-label for="name" value="{{ __('Upload HRMS Employee Data File (.csv)') }}" />
     </div>
     <div class="relative my-4">
         <!-- This is the visible part of the file input -->
         
-        <x-input type="file" class="w-full h-full" wire:model="file" accept=".xls, .xlsx"   required/>
+        <x-input type="file" class="w-full h-full" wire:model="file" accept=".csv"   required/>
     
         <!-- This is the hidden button -->
         
