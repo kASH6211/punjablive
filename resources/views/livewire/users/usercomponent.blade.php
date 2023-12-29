@@ -41,7 +41,7 @@
     <table class="table-auto w-full border-collapse border">
 
         <thead class="bg-gray-200 w-full">
-            <td class="px-2 text-left border text-gray-700 py-2text-sm font-semibold  w-16">Sr No.</th>
+            <td class="px-2 text-left border text-gray-700 py-2text-sm font-semibold  w-2">Sr No.</th>
 
                 @foreach($header as $head)
             <td class=" text-left border text-gray-700   w-16 text-sm font-semibold  p-2">{{$head}}</th>
@@ -50,17 +50,25 @@
         <tbody>
             @foreach($data as $index=>$row)
             <tr>
-                <td class="text-center border text-gray-600 py-2">{{$index + $data->firstItem()}}</td>
-                <td class="text-center border text-gray-600">{{$row->user_id}}</td>
+                <td class="px-2 border text-gray-600 py-2">{{$index + $data->firstItem()}}</td>
+               
                 @if(Auth::user()->role_id ==2)
-
-                <td class="text-center border text-gray-600">{{$row->userdistrict->DistName}}</td>
-                <td class="text-center border text-gray-600">{{$row->name}}</td>
-                <td class="text-center border text-gray-600">{{$row->email}}</td>
+                <td class="px-2 border text-gray-600">{{$row->user_id}}</td>
+                <td class="px-2 border text-gray-600">{{$row->userdistrict->DistName}}</td>
+                <td class="px-2 border text-gray-600">{{$row->name}}</td>
+                <td class="px-2 border text-gray-600">{{$row->email}}</td>
                 @else
-                <td class="text-center border text-gray-600">{{$this->getOfficeName($row->deptcode,$row->officecode)}}</td>
+                @if($row->role_id ==5)
+                <td class="px-2 border text-gray-600">{{$row->user_id}}<span class="text-gray-400"><i> (Master Entry User)</i></span></td>
+                <td class="px-2 border text-gray-600">N/A</td>
 
-                <td class="text-center border text-gray-600">{{$this->getDeptName($row->deptcode)}}</td>
+                <td class="px-2 border text-gray-600">N/A</td>
+                @else
+                <td class="px-2 border text-gray-600">{{$row->user_id}}</td>
+                <td class="px-2 border text-gray-600">{{$this->getOfficeName($row->deptcode,$row->officecode)}}</td>
+
+                <td class="px-2 border text-gray-600">{{$this->getDeptName($row->deptcode)}}</td>
+                @endif
                 @endif
                 {{-- <td class="text-center border text-gray-600">{{$row->name}}</td> --}}
 
@@ -77,7 +85,7 @@
 
 
 
-                <td class="text-center border text-gray-600 w-8 ">
+                <td class="px-2 border text-gray-600 w-8 ">
                     <div class="flex justify-center items-center"><a href="javascript:void(0)" wire:click="viewobject('{{$row->id}}')" class="m-2 hover:bg-blue-100 p-2 rounded-md">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-5 h-5 stroke-blue-500">
@@ -93,7 +101,7 @@
 
                 </td>
 
-                <td class="text-center border text-gray-600 w-8 ">
+                <td class="px-2 border text-gray-600 w-8 ">
                     <div class="flex justify-center items-center"><a href="javascript:void(0)" wire:click="editobject('{{$row->id}}')" class="m-2 hover:bg-blue-100 p-2 rounded-md">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-5 h-5 stroke-blue-500">
@@ -109,7 +117,7 @@
                 </td>
 
 
-                <td class="text-center border text-gray-600 w-8">
+                <td class="px-2 border text-gray-600 w-8">
                     <div class="flex justify-center items-center"><a href="javascript:void(0);" wire:click="openForDeletion('{{$row->id}}')" class="m-2 hover:bg-red-100 p-2 rounded-md">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-5 h-5 stroke-red-500">

@@ -265,15 +265,17 @@
             <tr class="w-full">
                 <th class="w-4/12 border-b border-gray-200 p-1">Designation</th>
                 <td class="w-8/12 border-b border-gray-200 p-1">
-                    @if($viewobject)
+                    @if($viewobject && $viewobject->designation)
                     {{ $viewobject->designation->Designation}}
                     @endif
                 </td>
             </tr>
-            <tr class="w-full">
+            
+         
+<tr class="w-full">
                 <th class="w-4/12 border-b border-gray-200 p-1">Employee Type</th>
                 <td class="w-8/12 border-b border-gray-200 p-1">
-                    @if($viewobject)
+                    @if($viewobject && $viewobject->employeetype)
                     {{ $viewobject->employeetype->EmpTypeName}}
                     @endif
                 </td>

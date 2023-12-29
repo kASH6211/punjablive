@@ -194,7 +194,7 @@
 
 
                     <td class=" border p-1 text-gray-600 px-2">
-                    {{-- {{$row->designation->Designation}} --}}Designation
+                    @if($row && $row->DesigCode){{$row->designation->Designation}} @endif
                     </td>
 
 

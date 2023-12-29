@@ -23,7 +23,7 @@ class AddContentSecurityPolicyHeader
          
             // Share the nonce with all views
             
-            $cspHeader = "default-src 'self' 'unsafe-eval' 'unsafe-inline'; "; // Modify this based on your CSP policy
+            $cspHeader = "default-src 'self' 'unsafe-eval' 'unsafe-inline' data:; "; // Modify this based on your CSP policy
             $response->header('Content-Security-Policy', $cspHeader);
         }
 

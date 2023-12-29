@@ -96,6 +96,7 @@ class Usercomponent extends Component
         if($this->role_id==3)
         {
             $this->rolelist = Role::whereIn('id',[Auth::user()->role_id+1,Auth::user()->role_id+2])->get();
+           
         }
         else
         {
@@ -149,7 +150,7 @@ class Usercomponent extends Component
             return $query->where('st_Code', $this->statecode);})->when($this->distcode, function ($query, $search) {
                 return $query->where('distcode', $this->distcode);})->whereIn('role_id',Auth::user()->role_id==3?[4,5]:array(Auth::user()->role_id+1))->when($this->search, function ($query, $search) {
             return $query->where('Name', 'ILIKE', "%$this->search%");
-        })->orderBy('id', 'DESC')->paginate($this->perPage);
+        })->orderBy('role_id', 'DESC')->orderBy('id', 'DESC')->paginate($this->perPage);
         
         $data->withPath('/users');
         
