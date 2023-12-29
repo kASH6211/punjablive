@@ -12,32 +12,34 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('hrms_polling_data', function (Blueprint $table) {
-            $table->string('HRMSCODE',60);
-            $table->string('NAME',60);
-            $table->string('FATHER_HUSBAND',60);
-            $table->string('DOB',60);
-            $table->string('DOR',60);
-            $table->string('DEPTCODE',60);
-            $table->string('OFFICECODE',60);
-            $table->string('DESIGCODE',60);
-            $table->string('GENDER',60);
-            $table->string('CLASS',60);
-            $table->string('PAYLEVEL',60);
-            $table->string('BASICPAY',60);
-            $table->string('OFFICENAME',200);
-            $table->string('DISTRICT',60);
-            $table->string('DISTCODE',60);
-            $table->string('MOBILE',60);
-            $table->string('EMAIL',60);
-            $table->string('BANKNAME',60);
-            $table->string('IFSCCODE',60);
-            $table->string('ACCOUNTNO',60);
-            $table->string('STATUS',60);
-            $table->string('EMPLOYEETYPE',60);
-            $table->string('DDO_CODE',60);
-            $table->string('IFMSPAYEECODE',60);
-            $table->string('HANDICAPPED',60);
-            $table->string('ONLEAVE',60);
+            $table->id();
+            $table->string('HRMSCODE',60)->nullable();
+            $table->string('NAME',60)->nullable();
+            $table->string('FATHER_HUSBAND',60)->nullable();
+            $table->string('DOB',60)->nullable();
+            $table->string('DOR',60)->nullable();
+            $table->string('DEPTCODE',60)->nullable();
+            $table->string('OFFICECODE',60)->nullable();
+            $table->string('DESIGCODE',60)->nullable();
+            $table->string('GENDER',60)->nullable();
+            $table->string('CLASS',60)->nullable();
+            $table->string('PAYLEVEL',60)->nullable();
+            $table->string('BASICPAY',60)->nullable();
+            $table->string('OFFICENAME',200)->nullable();
+            $table->string('DISTRICT',60)->nullable();
+            $table->string('DISTCODE',60)->nullable();
+            $table->string('MOBILE',60)->nullable();
+            $table->string('EMAIL',60)->nullable();
+            $table->string('BANKNAME',60)->nullable();
+            $table->string('IFSCCODE',60)->nullable();
+            $table->string('ACCOUNTNO',60)->nullable();
+            $table->string('STATUS',60)->nullable();
+            $table->string('EMPLOYEETYPE',60)->nullable();
+            $table->string('DDO_CODE',60)->nullable();
+            $table->string('IFMSPAYEECODE',60)->nullable();
+            $table->string('HANDICAPPED',60)->nullable();
+            $table->string('ONLEAVE',60)->nullable();
+            $table->timestamps();
             
         });
     }

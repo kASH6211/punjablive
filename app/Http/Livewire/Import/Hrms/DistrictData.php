@@ -25,6 +25,7 @@ use App\Models\HrmsOffice;
 use App\Models\HrmsDepartment;
 use App\Models\HrmsDesignation;
 use App\Models\PollingDataPhoto;
+use App\Models\HrmsPollingData;
 use Session;
 
 use App\Models\DesignationMaster;
@@ -345,6 +346,8 @@ protected $rules=[
     public function importCsv($path,$table)
     {
         // Path to the CSV file
+        set_time_limit(10000);
+        ini_set('memory_limit', '1024M');
         $csvFilePath = $path;
         // Your table name
         $tableName = $table;
@@ -352,14 +355,29 @@ protected $rules=[
         {
             DB::table($tableName)->truncate();
         }
+
+        $csvData = array_map('str_getcsv', file($csvFilePath));
+        //dd(count($csvData));
+        $headers = array_shift($csvData);
+        //dd(count($csvData));
+        // Insert data into the database
+        foreach ($csvData as $row) {
+            
+            $data = array_combine($headers, $row);
+            
+            HrmsPollingData::create($data);
+           //dd('par');
+        }
+
+
         // Raw SQL query for bulk insertion
-        $sql = <<<SQL
-        COPY $tableName FROM '$csvFilePath' DELIMITER ',' CSV HEADER ENCODING 'win1252';
-        SQL;
-       // dd($sql);
+    //     $sql = <<<SQL
+    //     COPY $tableName FROM '$csvFilePath' DELIMITER ',' CSV HEADER ENCODING 'win1252';
+    //     SQL;
+    //    // dd($sql);
     
        
-            DB::unprepared($sql);
+    //         DB::unprepared($sql);
             //dd("success");// return redirect()->back()->with('success', 'CSV data imported successfully');
        
     }
@@ -377,11 +395,11 @@ protected $rules=[
         //$path = $this->file->store('temp');
         // dd(request()->server('SERVER_ADDR'));
         // dd($this->file->getFileName());
+ $this->importCsv($this->file->getRealPath(),'hrms_polling_data');
+        // $file = request()->server('SERVER_ADDR') . '/storage/app/livewire-tmp/'. $this->file->getFileName();
 
-        $file = request()->server('SERVER_ADDR') . '/storage/app/livewire-tmp/'. $this->file->getFileName();
-
-        //dd($file);
-        $this->importCsv($file,'hrms_polling_data');
+        // //dd($file);
+        // $this->importCsv($file,'hrms_polling_data');
         // $this->importCsv($this->file->getRealPath(),'hrms_polling_data');
        
         
