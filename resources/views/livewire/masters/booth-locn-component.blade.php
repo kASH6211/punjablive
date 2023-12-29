@@ -7,7 +7,7 @@
 
         <div class=" w-1/3 rounded-sm px-4">
 
-            <x-input type="text" wire:model.debounce.500ms="search" placeholder="Search..." class="w-full border-0 h-12 rounded-lg">
+            <x-input type="text" wire:model.debounce.500ms="search" placeholder="Search by booth location ..." class="w-full border-0 h-12 rounded-lg">
 
             </x-input>
 

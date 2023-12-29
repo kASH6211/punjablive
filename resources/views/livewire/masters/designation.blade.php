@@ -6,7 +6,7 @@
 
         <div class=" w-1/2 rounded-sm px-4">
 
-            <x-input type="text" wire:model.debounce.500ms="search" placeholder="Search..." class="w-full border-0 h-12 rounded-lg" wire:change="updatedSearch()">
+            <x-input type="text" wire:model.debounce.500ms="search" placeholder="Search by designation..." class="w-full border-0 h-12 rounded-lg" wire:change="updatedSearch()">
 
             </x-input>
 
